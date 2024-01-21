@@ -1,0 +1,14 @@
+copy(
+  [...document.querySelectorAll('li[data-automation-id]')].map((e) => {
+    try{
+    const title = (e.querySelector('a:last-child').textContent);
+    const date = e.parentElement.previousElementSibling.textContent;
+    return `${date}\t${title}`;
+    }
+    catch(err) {
+    const episode = (e.textContent);
+    const date = e.parentElement.previousElementSibling.textContent;
+    return ` - ${episode}`;
+    }
+  }).join('\n')
+)
